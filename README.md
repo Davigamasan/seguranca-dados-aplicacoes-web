@@ -124,11 +124,10 @@ revisão de segurança adicional.
 ## Como citar
 
 Consulte o arquivo `CITATION.cff`. Referência sugerida:
-
-> SANTOS, D. G. dos; VIEIRA, E. de S.; ALMEIDA, J. C. S. de; SILVA, J. P. B. da;
-> CUNHA, S. A. N. da. Segurança de Dados em Aplicações Web: protótipo de defesa em profundidade
-> com Zero Trust e autenticação multifatorial. Trabalho de Conclusão de Curso (Bacharelado em
-> Sistemas de Informação) — Centro Universitário Braz Cubas, 2026.
+GAMA, D. dos S.; VIEIRA, E. de S.; SILVA, J. P. B. da;
+Segurança de Dados em Aplicações Web: protótipo de defesa em profundidade 
+com Zero Trust e autenticação multifatorial. Trabalho de Conclusão de Curso 
+(Bacharelado em Sistemas de Informação) — Centro Universitário Braz Cubas, 2026.
 
 ## Licença
 
