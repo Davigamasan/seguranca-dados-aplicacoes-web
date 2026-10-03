@@ -1,0 +1,74 @@
+{
+  "taxa_bloqueio": {
+    "N0 – Senha em texto puro": {
+      "Reuso de credencial vazada": 0.0,
+      "Forca-bruta de senha": 0.0,
+      "Replay de codigo TOTP": 0.0,
+      "Phishing em tempo real (AiTM)": 0.0
+    },
+    "N1 – + Hash Argon2id": {
+      "Reuso de credencial vazada": 0.0,
+      "Forca-bruta de senha": 0.0,
+      "Replay de codigo TOTP": 0.0,
+      "Phishing em tempo real (AiTM)": 0.0
+    },
+    "N2 – + Rate limiting / bloqueio": {
+      "Reuso de credencial vazada": 0.0,
+      "Forca-bruta de senha": 93.8,
+      "Replay de codigo TOTP": 0.0,
+      "Phishing em tempo real (AiTM)": 0.0
+    },
+    "N3 – + MFA/TOTP": {
+      "Reuso de credencial vazada": 100.0,
+      "Forca-bruta de senha": 93.8,
+      "Replay de codigo TOTP": 0.0,
+      "Phishing em tempo real (AiTM)": 0.0
+    },
+    "N4 – + Zero Trust (anti-replay)": {
+      "Reuso de credencial vazada": 100.0,
+      "Forca-bruta de senha": 93.8,
+      "Replay de codigo TOTP": 100.0,
+      "Phishing em tempo real (AiTM)": 0.0
+    },
+    "N5 – + FIDO2/WebAuthn (anti-phishing)": {
+      "Reuso de credencial vazada": 100.0,
+      "Forca-bruta de senha": 93.8,
+      "Replay de codigo TOTP": 100.0,
+      "Phishing em tempo real (AiTM)": 100.0
+    }
+  },
+  "latencia_ms": {
+    "N0 – Senha em texto puro": {
+      "media": 0.0,
+      "desvio": 0.0
+    },
+    "N1 – + Hash Argon2id": {
+      "media": 21.84,
+      "desvio": 1.68
+    },
+    "N2 – + Rate limiting / bloqueio": {
+      "media": 22.66,
+      "desvio": 1.11
+    },
+    "N3 – + MFA/TOTP": {
+      "media": 20.81,
+      "desvio": 2.13
+    },
+    "N4 – + Zero Trust (anti-replay)": {
+      "media": 20.94,
+      "desvio": 0.57
+    },
+    "N5 – + FIDO2/WebAuthn (anti-phishing)": {
+      "media": 22.61,
+      "desvio": 0.59
+    }
+  },
+  "tentativas_ate_bloqueio": {
+    "N0 – Senha em texto puro": 500,
+    "N1 – + Hash Argon2id": 500,
+    "N2 – + Rate limiting / bloqueio": 5,
+    "N3 – + MFA/TOTP": 5,
+    "N4 – + Zero Trust (anti-replay)": 5,
+    "N5 – + FIDO2/WebAuthn (anti-phishing)": 5
+  }
+}
