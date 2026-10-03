@@ -8,16 +8,13 @@ abstract: >-
   acumulativos de defesa (de senha em texto puro a FIDO2/WebAuthn) e mede a
   resiliência de cada nível frente a quatro famílias de ataque.
 authors:
-  - family-names: "Santos"
-    given-names: "Davi Gama dos"
+ - family-names: "Gama"
+    given-names: "Davi dos Santos"
   - family-names: "Vieira"
     given-names: "Eudenis de Souza"
-  - family-names: "Almeida"
-    given-names: "Jean Carlos Silva de"
   - family-names: "Silva"
     given-names: "João Pedro Barreto da"
-  - family-names: "Cunha"
-    given-names: "Samuel Allan Nunes da"
+
 year: 2026
 license: MIT
 keywords:
