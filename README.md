@@ -21,6 +21,13 @@ A arquitetura do protótipo apoia-se em três pilares teóricos, descritos em de
 3. **Autenticação de Múltiplos Fatores**, do TOTP (RFC 6238) à autenticação resistente a phishing
    baseada em FIDO2/WebAuthn, recomendada pelo NIST SP 800-63B e pela CISA.
 
+   Além do referencial técnico, o protótipo atende a requisitos normativos de
+proteção de dados. A Lei Geral de Proteção de Dados (LGPD, Lei nº 13.709/2018)
+exige, em seu art. 46, medidas técnicas aptas a proteger dados pessoais contra
+acessos não autorizados, incluindo o princípio de segurança desde a concepção
+(art. 46, §2º). No plano técnico, os controles da ABNT NBR ISO/IEC 27002:2022
+oferecem respaldo às camadas implementadas.
+
 ## Níveis de defesa
 
 Cada nível herda as proteções do anterior e acrescenta uma única camada, o que permite isolar a
@@ -34,6 +41,19 @@ contribuição de cada mecanismo.
 | N3 | MFA/TOTP (RFC 6238) como segundo fator de autenticação |
 | N4 | Controles Zero Trust: verificação de sessão e rejeição de reuso de código (anti-replay) |
 | N5 | Autenticação resistente a phishing (FIDO2/WebAuthn) com vinculação de origem |
+
+## Conformidade normativa
+
+Cada camada do protótipo corresponde a um controle da ISO/IEC 27002:2022 e
+contribui para o cumprimento da LGPD:
+
+| Camada | Requisito da LGPD | Controle ISO/IEC 27002:2022 |
+|--------|-------------------|------------------------------|
+| N1 | Art. 46 | 8.24 Uso de criptografia |
+| N2 | Art. 46 | 8.5 Autenticação segura |
+| N3 | Art. 6º VII e Art. 46 | 5.17 Informações de autenticação |
+| N4 | Art. 46 §2º | 5.15 Controle de acesso |
+| N5 | Art. 46 | 8.5 Autenticação segura |
 
 ## Famílias de ataque simuladas
 
