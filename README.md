@@ -73,7 +73,7 @@ contribuição de cada mecanismo.
 ## Instalação
 
 ```
-git clone https://github.com/<usuario>/seguranca-dados-aplicacoes-web.git
+git clone https://github.com/<usuario>/seguranca-dados-aplicacoes-web.git](https://github.com/Davigamasan/seguranca-dados-aplicacoes-web.git
 cd seguranca-dados-aplicacoes-web
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
