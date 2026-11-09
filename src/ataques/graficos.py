@@ -5,6 +5,16 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
+from decimal import Decimal, ROUND_HALF_UP
+
+
+def fmt_pct(v):
+    """Formata percentual no padrão BR: inteiros sem casa decimal (100%),
+    não-inteiros com uma casa e vírgula (93,8%). Arredonda meio para cima."""
+    q = Decimal(repr(round(float(v), 10))).quantize(Decimal("0.1"), rounding=ROUND_HALF_UP)
+    if q == q.to_integral_value():
+        return f"{int(q)}%"
+    return f"{q}%".replace(".", ",")
 
 BASE = os.path.join(os.path.dirname(__file__), "..", "..", "resultados")
 d = json.load(open(os.path.join(BASE, "resultados.json"), encoding="utf-8"))
@@ -26,7 +36,7 @@ ax.set_yticks(range(len(niveis)))
 ax.set_yticklabels(rotulos_niveis)
 for i in range(len(niveis)):
     for j in range(len(ataques)):
-        ax.text(j, i, f"{matriz[i, j]:.0f}%", ha="center", va="center",
+        ax.text(j, i, fmt_pct(matriz[i, j]), ha="center", va="center",
                 color="black", fontsize=10, fontweight="bold")
 ax.set_title("Taxa de bloqueio de acessos indevidos por camada de defesa",
              fontsize=11, pad=12)
@@ -48,7 +58,7 @@ ax.set_xlabel("Camadas de defesa acumuladas")
 ax.set_title("Resiliência global cresce à medida que as camadas são reforçadas",
              fontsize=11)
 for b, v in zip(barras, media_por_nivel):
-    ax.text(b.get_x() + b.get_width() / 2, v + 2, f"{v:.0f}%",
+    ax.text(b.get_x() + b.get_width() / 2, v + 2, fmt_pct(v),
             ha="center", fontsize=9, fontweight="bold")
 plt.tight_layout()
 plt.savefig(os.path.join(os.path.dirname(__file__), "..", "..", "docs", "figuras", "fig2_resiliencia.png"), dpi=150)
