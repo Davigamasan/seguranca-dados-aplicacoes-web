@@ -21,11 +21,10 @@ A arquitetura do protótipo apoia-se em três pilares teóricos, descritos em de
 3. **Autenticação de Múltiplos Fatores**, do TOTP (RFC 6238) à autenticação resistente a phishing
    baseada em FIDO2/WebAuthn, recomendada pelo NIST SP 800-63B e pela CISA.
 
-   Além do referencial técnico, o protótipo atende a requisitos normativos de
-proteção de dados. A Lei Geral de Proteção de Dados (LGPD, Lei nº 13.709/2018)
-exige, em seu art. 46, medidas técnicas aptas a proteger dados pessoais contra
-acessos não autorizados, incluindo o princípio de segurança desde a concepção
-(art. 46, §2º). No plano técnico, os controles da ABNT NBR ISO/IEC 27002:2022
+Além do referencial técnico, o protótipo atende a requisitos normativos de proteção de dados. A
+Lei Geral de Proteção de Dados (LGPD, Lei nº 13.709/2018) exige, em seu art. 46, medidas técnicas
+aptas a proteger dados pessoais contra acessos não autorizados, incluindo o princípio de segurança
+desde a concepção (art. 46, §2º). No plano técnico, os controles da ABNT NBR ISO/IEC 27002:2022
 oferecem respaldo às camadas implementadas.
 
 ## Níveis de defesa
@@ -44,8 +43,8 @@ contribuição de cada mecanismo.
 
 ## Conformidade normativa
 
-Cada camada do protótipo corresponde a um controle da ISO/IEC 27002:2022 e
-contribui para o cumprimento da LGPD:
+Cada camada do protótipo corresponde a um controle da ISO/IEC 27002:2022 e contribui para o
+cumprimento da LGPD:
 
 | Camada | Requisito da LGPD | Controle ISO/IEC 27002:2022 |
 |--------|-------------------|------------------------------|
@@ -93,7 +92,7 @@ contribui para o cumprimento da LGPD:
 ## Instalação
 
 ```
-git clone https://github.com/<usuario>/seguranca-dados-aplicacoes-web.git](https://github.com/Davigamasan/seguranca-dados-aplicacoes-web.git
+git clone https://github.com/Davigamasan/seguranca-dados-aplicacoes-web.git
 cd seguranca-dados-aplicacoes-web
 python -m venv venv
 source venv/bin/activate        # Windows: venv\Scripts\activate
@@ -130,9 +129,16 @@ NIVEL_DEMO=3 python src/app.py
 ## Resultados
 
 Os resultados completos encontram-se em `resultados/resultados.json` e nas figuras em
-`docs/figuras/`. A progressão observada confirma a hipótese do trabalho: a cada camada
-adicionada, uma família de ataque adicional passa a ser bloqueada, até o bloqueio integral dos
-acessos indevidos simulados na configuração completa (N5).
+`docs/figuras/`. Cada nível foi submetido a 80 tentativas de acesso indevido por família de
+ataque, adotando-se a taxa de bloqueio (tentativas barradas sobre o total) como medida de
+resiliência.
+
+A progressão observada confirma a hipótese do trabalho: a cada camada adicionada, uma nova família
+de ataque passa a ser contida, e a resiliência média cresce de 0% (N0 e N1) para 98% (N5). Na
+configuração completa (N5), os ataques de reuso de credencial vazada, de replay de código TOTP e
+de phishing em tempo real são integralmente bloqueados (100%), e a força-bruta é contida em 93,8%.
+Essa margem residual corresponde às cinco tentativas inicialmente admitidas pela regra de rate
+limiting antes do bloqueio da conta (75 de 80 tentativas barradas).
 
 ## Aviso
 
@@ -144,10 +150,11 @@ revisão de segurança adicional.
 ## Como citar
 
 Consulte o arquivo `CITATION.cff`. Referência sugerida:
-GAMA, D. dos S.; VIEIRA, E. de S.; SILVA, J. P. B. da;
-Segurança de Dados em Aplicações Web: protótipo de defesa em profundidade 
-com Zero Trust e autenticação multifatorial. Trabalho de Conclusão de Curso 
-(Bacharelado em Sistemas de Informação) — Centro Universitário Braz Cubas, 2026.
+
+> GAMA, D. dos S.; VIEIRA, E. de S.; SILVA, J. P. B. da. Segurança de Dados em Aplicações Web:
+> protótipo de defesa em profundidade com Zero Trust e autenticação multifatorial. Trabalho de
+> Conclusão de Curso (Bacharelado em Sistemas de Informação) — Centro Universitário Braz Cubas,
+> 2026.
 
 ## Licença
 
